@@ -1,5 +1,6 @@
 package com.autostock.api.controller;
 
+import com.autostock.api.model.Armario;
 import com.autostock.api.model.Box;
 import com.autostock.api.services.BoxService;
 
@@ -23,17 +24,18 @@ public class BoxController {
         return ResponseEntity.status(HttpStatus.CREATED).body(novoBox);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Box>> listarBoxes() {
-        List<Box> boxes = boxService.listarBoxes();
+    @GetMapping("/{id}")
+    public ResponseEntity<List<Box>> listarBoxes(@PathVariable int id) {
+        List<Box> boxes = boxService.listarBoxes(id);
         return ResponseEntity.ok(boxes);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Box> buscarBoxPorId(@PathVariable int id) {
-        Box box = boxService.buscarPorId(id);
-        return ResponseEntity.ok(box);
+    @PutMapping("/{id}")
+    public ResponseEntity<String> atualizaArmario(@PathVariable int id, @RequestBody Box box){
+        boxService.update(id, box);
+        return ResponseEntity.ok("Atualizado");
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluirBox(@PathVariable int id) {

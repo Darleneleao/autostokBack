@@ -34,6 +34,11 @@ public class ArmarioController {
         Armario armario = armarioService.buscarPorId(id);
         return ResponseEntity.ok(armario);
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<String> atualizaArmario(@PathVariable int id, @RequestBody Armario armario){
+        armarioService.update(id, armario);
+        return ResponseEntity.ok("Atualizado");
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluirArmario(@PathVariable int id) {

@@ -1,5 +1,6 @@
 package com.autostock.api.controller;
 
+import com.autostock.api.model.Box;
 import com.autostock.api.model.Componente;
 import com.autostock.api.services.ComponenteService;
 
@@ -22,16 +23,16 @@ public class ComponenteController {
         return ResponseEntity.status(HttpStatus.CREATED).body(novoComponente);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Componente>> listarComponentes() {
-        List<Componente> componentes = componenteService.listarComponentes();
+    @GetMapping("/{idBox}")
+    public ResponseEntity<List<Componente>> listarComponentes(@PathVariable int idBox) {
+        List<Componente> componentes = componenteService.listarComponentes(idBox);
         return ResponseEntity.ok(componentes);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Componente> buscarComponentePorId(@PathVariable int id) {
-        Componente componente = componenteService.buscarPorId(id);
-        return ResponseEntity.ok(componente);
+    @PutMapping("/{id}")
+    public ResponseEntity<String> atualizaArmario(@PathVariable int id, @RequestBody Componente componente){
+        componenteService.update(id, componente);
+        return ResponseEntity.ok("Atualizado");
     }
 
     @DeleteMapping("/{id}")
