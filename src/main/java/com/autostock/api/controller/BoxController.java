@@ -1,6 +1,5 @@
 package com.autostock.api.controller;
 
-import com.autostock.api.model.Armario;
 import com.autostock.api.model.Box;
 import com.autostock.api.services.BoxService;
 
