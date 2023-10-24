@@ -41,7 +41,7 @@ public class AuthenticationController {
     public ResponseEntity register(@RequestBody RegisterDTO data){
         if(repository.findByLogin(data.login())!=null){return ResponseEntity.badRequest().build();}
         String crip = new BCryptPasswordEncoder().encode(data.password());
-        this.repository.save(User.builder().login(data.login()).password(crip).role(data.role()).build());
+        this.repository.save(User.builder().login(data.login()).nome(data.nome()).password(crip).role("ROLE_ADMIN").build());
         return ResponseEntity.ok().build();
     }
 }

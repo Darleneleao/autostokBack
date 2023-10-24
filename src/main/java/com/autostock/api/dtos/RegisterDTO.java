@@ -1,5 +1,5 @@
 package com.autostock.api.dtos;
 
-public record RegisterDTO(String login, String password, String role) {
+public record RegisterDTO(String login, String nome , String password) {
     
 }
