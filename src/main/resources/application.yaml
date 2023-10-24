@@ -15,7 +15,7 @@ flyway:
   locations: classpath:db/migration
 web:
   cors:
-    allowed-origins: "http://localhost:4200"
+    allowed-origins: "http://localhost:8080"
     allowed-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD
     max-age: 3600
     allowed-headers: "Requestor-Type"
