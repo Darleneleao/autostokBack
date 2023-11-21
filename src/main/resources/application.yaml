@@ -5,13 +5,13 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/autostok
     username: postgres
-    password: postgres
+    password: 1408
     driver-class-name: org.postgresql.Driver
 
 flyway:
   url: jdbc:postgresql://localhost:5432/autostok
   user: postgres
-  password: postgres
+  password: 1408
   locations: classpath:db/migration
 web:
   cors:

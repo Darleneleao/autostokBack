@@ -1,5 +1,7 @@
 package com.autostock.api.controller;
 
+import com.autostock.api.dtos.ComponenteDto;
+import com.autostock.api.dtos.PesquisaDto;
 import com.autostock.api.model.Componente;
 import com.autostock.api.services.ComponenteService;
 
@@ -38,5 +40,11 @@ public class ComponenteController {
     public ResponseEntity<Void> excluirComponente(@PathVariable int id) {
         componenteService.excluirComponente(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/pesquisa")
+    public ResponseEntity<List<ComponenteDto>> pesquisarComponente(@RequestBody PesquisaDto data) {
+        List<ComponenteDto> componentes = componenteService.pesquisarComponente(data.nome());
+        return ResponseEntity.ok(componentes);
     }
 }

@@ -10,4 +10,6 @@ import com.autostock.api.model.Componente;
 public interface ComponenteRepository extends JpaRepository<Componente,Integer>{
     @Query(value = "select * from componente where box_id = ?1", nativeQuery = true)
     List<Componente> getComponentesByBox(int idBox);
+
+    List<Componente> findByNomeContaining(String nome);
 }
