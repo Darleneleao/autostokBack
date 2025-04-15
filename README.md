@@ -45,7 +45,7 @@ Este projeto é o back-end do sistema **Autostok**, responsável por fornecer a 
     
 4. **Configure o banco de dados:**
 
-- Crie o banco de dados no MySQL com o nome definido em DB_NAME.
+- Crie o banco de dados no PostgreSQL com o nome definido em DB_NAME.
 - Importe o arquivo SQL caso exista (ex: autostok.sql).
 
 5. **Inicie o servidor:**
