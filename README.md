@@ -11,7 +11,7 @@ Este projeto é o back-end do sistema **Autostok**, responsável por fornecer a 
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Linguagem:** JavaScript (Node.js)
+- **Linguagem:** Java
 - **Framework:** Spring Boot
 - **Banco de Dados:** PostgreSQL
 - **Autenticação:** JWT (JSON Web Token)
