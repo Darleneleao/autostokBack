@@ -26,8 +26,8 @@ Antes de começar, você precisa ter instalado na sua máquina:
 
 - [Node.js (versão recomendada: 18+)](https://nodejs.org/)
 - [Git](https://git-scm.com/)
+- [PostgreSQL](https://www.postgresql.org/download/) (versão 13 ou superior)
 - [Yarn](https://classic.yarnpkg.com/lang/en/) ou [npm](https://www.npmjs.com/)
-- [MongoDB](https://www.mongodb.com/try/download/community) (ou acesso a uma instância online)
 
 ### 🔧 Instalação
 
@@ -57,34 +57,45 @@ Ou usando **yarn**:
 yarn install
 ```
 
-### ⚙️ Configuração
+### ⚙️ Configuração do Banco de Dados
 
-Crie um arquivo `.env` na raiz do projeto com as variáveis de ambiente necessárias. Exemplo básico:
+1. Crie um banco de dados no PostgreSQL com o nome desejado, por exemplo:
 
-```env
-PORT=3001
-MONGODB_URI=mongodb://localhost:27017/autostok
+```sql
+CREATE DATABASE autostok;
 ```
 
-> ⚠️ Verifique se o nome da variável e a porta estão corretos conforme usado no seu código.
+2. Crie um arquivo `.env` na raiz do projeto com as variáveis de ambiente necessárias. Exemplo:
+
+```env
+PORT=8000
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=seu_usuario_postgres
+DB_PASSWORD=sua_senha_postgres
+DB_NAME=autostok
+```
+
+> ⚠️ Substitua `seu_usuario_postgres` e `sua_senha_postgres` pelas suas credenciais reais.
+
+3. Execute as **migrations** ou scripts SQL, se houver, para criar as tabelas no banco.
 
 ### ▶️ Executando o Projeto
 
-Para iniciar o servidor em modo de desenvolvimento:
-
-```bash
-npm run dev
-```
-
-Ou em modo padrão:
+Para iniciar o servidor:
 
 ```bash
 npm start
 ```
 
-O backend estará disponível em:
+Ou, se houver suporte a modo de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+A API estará disponível em:
 
 ```
 http://localhost:8000
 ```
-
